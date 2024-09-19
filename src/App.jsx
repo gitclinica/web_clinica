@@ -3,6 +3,7 @@ import Dashboard from "@components/dashboard/Dashboard";
 import Navbar from "@components/template/Navbar";
 import Menu from "@components/template/Menu";
 import User from "@components/autenticacion/User";
+import UserForm from "./components/autenticacion/UserForm";
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
                 <Route path="/" element={<Navigate to="/estadisticas" />} />
                 <Route path="/estadisticas" element={<Dashboard />}></Route>
                 <Route path="/usuarios" element={<User />}></Route>
+                <Route path="/usuarios/nuevo" element={<UserForm />}></Route>
+                <Route path="/usuarios/editar/:id" element={<UserForm />}></Route>
               </Routes>
             </div>
           </div>

@@ -3,10 +3,11 @@ import MenuLink from "@components/template/MenuLink";
 
 const Menu = () => {
   const location = useLocation();
-  console.log(location.pathname);
   const isPathActive = (keywords) => {
     return keywords.some((keyword) => location.pathname.includes(keyword)) ? "active" : "";
   };
+
+  console.log(location.pathname);
 
   return (
     <>
@@ -21,7 +22,7 @@ const Menu = () => {
               <span className="menu-title">Estadísticas</span>
             </Link>
           </li>
-          <li className={`nav-item ${isPathActive(["/usuarios", "/permisos", "/backup"])}`}>
+          <li className={`nav-item ${isPathActive(["/usuarios", "/usuarios/nuevo", "/permisos", "/backup"])}`}>
             <a className="nav-link" data-toggle="collapse" href="#ui-autenticacion" aria-expanded="false" aria-controls="ui-autenticacion">
               <span className="icon-bg">
                 <i className="mdi mdi-crosshairs-gps menu-icon"></i>
@@ -31,9 +32,9 @@ const Menu = () => {
             </a>
             <div className="collapse" id="ui-autenticacion">
               <ul className="nav flex-column sub-menu">
-                <MenuLink text="Usuarioss" path="/usuarios" />
-                <MenuLink text="Permisos" path="/permisos" />
-                <MenuLink text="Backup" path="/backup" />
+                <MenuLink text="Usuarios" path={["/usuarios", "/usuarios/nuevo"]} />
+                <MenuLink text="Permisos" path={["/permisos"]} />
+                <MenuLink text="Backup" path={["/backup"]} />
               </ul>
             </div>
           </li>
@@ -47,8 +48,8 @@ const Menu = () => {
             </a>
             <div className="collapse" id="ui-registros">
               <ul className="nav flex-column sub-menu">
-                <MenuLink text="Configuración" path="/configuracion" />
-                <MenuLink text="Seguros" path="/seguros" />
+                <MenuLink text="Configuración" path={["/configuracion"]} />
+                <MenuLink text="Seguros" path={["/seguros"]} />
               </ul>
             </div>
           </li>
@@ -62,9 +63,9 @@ const Menu = () => {
             </a>
             <div className="collapse" id="ui-consultas">
               <ul className="nav flex-column sub-menu">
-                <MenuLink text="Pacientes" path="/pacientes" />
-                <MenuLink text="Consultas/re-consultas" path="/consultas" />
-                <MenuLink text="Agenda" path="/agenda" />
+                <MenuLink text="Pacientes" path={["/pacientes"]} />
+                <MenuLink text="Consultas/re-consultas" path={["/consultas"]} />
+                <MenuLink text="Agenda" path={["/agenda"]} />
               </ul>
             </div>
           </li>
@@ -78,7 +79,7 @@ const Menu = () => {
             </a>
             <div className="collapse" id="ui-reportes">
               <ul className="nav flex-column sub-menu">
-                <MenuLink text="Pacientes" path="/reporte-consultas" />
+                <MenuLink text="Pacientes" path={["/reporte-consultas"]} />
               </ul>
             </div>
           </li>

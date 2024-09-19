@@ -2293,7 +2293,8 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #a7afb7;
+  /* color: #a7afb7; */
+  color: #000000;
   text-align: left;
   background-color: #fff;
 }
@@ -2930,8 +2931,8 @@ pre code {
 .col-xl-auto {
   position: relative;
   width: 100%;
-  padding-right: 9px;
-  padding-left: 9px;
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 .col {
@@ -7621,7 +7622,7 @@ input[type="button"].btn-block {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   min-height: 1px;
-  padding: 1.25rem;
+  padding: 25px;
 }
 
 .card-title {
@@ -14004,7 +14005,7 @@ code {
 }
 
 .page-header {
-  margin: 0 1rem 1.5rem 1rem;
+  margin: 0 1rem 1.5rem 0;
 }
 .page-header .breadcrumb {
   border: 0;
@@ -14671,15 +14672,13 @@ code {
 
 /* Buttons */
 .btn {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1;
-  font-family: "nunito-bold", sans-serif;
-  font-weight: 600;
-  /* Buttons with only icons */
-  /* Buttons with icon and text */
+  font-family: "nunito-regular", sans-serif;
+  font-weight: 400;
 }
 .btn i {
-  font-size: 12px;
+  font-size: 18px;
 }
 .btn.btn-rounded {
   border-radius: 50px;
@@ -15763,7 +15762,7 @@ code {
   border-radius: 0;
 }
 .card .card-body {
-  padding: 2.5rem 2.5rem;
+  padding: 25px;
 }
 .card .card-body + .card-body {
   padding-top: 1rem;
@@ -16134,7 +16133,8 @@ code {
 }
 .table th,
 .table td {
-  vertical-align: middle;
+  text-align: center; /* Centramos horizontalmente */
+  vertical-align: middle; /* Centramos verticalmente */
   font-size: 0.875rem;
   line-height: 1;
   white-space: nowrap;
@@ -18684,16 +18684,11 @@ dl li {
 
 .content-wrapper {
   background: #f0f1f6;
-  padding: 2.875rem 2.875rem 0 2.875rem;
+  padding: 30px 30px 30px 30px;
   width: 100%;
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-}
-@media (max-width: 991px) {
-  .content-wrapper {
-    padding: 2rem 1rem;
-  }
 }
 
 /* === Custom css === */
@@ -18874,4 +18869,59 @@ dl li {
   line-height: 1;
   margin: auto 0;
   color: #b1b1b1;
+}
+
+/* Estilo base del tag */
+.tag-badge {
+  display: inline-flex;
+  align-items: center;
+  /* background-color: #007bff; */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  margin-top: 3px;
+  margin-right: 10px;
+  cursor: default;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilo del botón de cerrar */
+.tag-badge .close-btn {
+  background: none;
+  border: none;
+  color: white;
+  margin-left: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Cuando el tag está seleccionado */
+.tag-badge.selected {
+  background-color: #28a745;
+}
+
+/* Cuando el tag está deshabilitado o no seleccionado */
+.tag-badge.disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.table-list {
+  table-layout: auto;
+}
+.table-list td {
+  white-space: nowrap;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.table-list td button {
+  padding: 4px;
+}
+
+.table .td-auto {
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 10px;
 }
