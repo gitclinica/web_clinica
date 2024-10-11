@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import DeleteDialog from "../../utils/DeleteDialog";
-import UserSearchModal from "./UserSearchModal";
+import DeleteDialog from "@components/utils/DeleteDialog";
+import UserSearchModal from "@components/autenticacion/UserSearchModal";
 
 const User = () => {
   const navigate = useNavigate();
@@ -47,7 +47,7 @@ const User = () => {
                   </div>
                 </div>
 
-                <button type="button" className="btn btn-sm btn-outline-primary mb-2" onClick={() => handleAdicionar()}>
+                <button type="button" className="btn btn-primary mb-2" onClick={() => handleAdicionar()}>
                   Adicionar
                 </button>
                 <table className="table table-bordered table-striped table-list">

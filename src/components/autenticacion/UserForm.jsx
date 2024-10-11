@@ -30,7 +30,7 @@ const UserForm = () => {
                     <button type="submit" className="btn btn-primary mr-2">
                       Aceptar
                     </button>
-                    <button className="btn btn-outline-secondary" onClick={handleVolver}>
+                    <button className="btn btn-secondary" onClick={handleVolver}>
                       Cancelar
                     </button>
                   </div>

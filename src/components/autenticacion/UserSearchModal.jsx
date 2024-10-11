@@ -7,7 +7,7 @@ const UserSearchModal = ({ setShowModalSearch }) => {
         <div className="modal-content">
           <div className="card">
             <div className="card-body">
-              <div className="col-12">
+              <div className="col-12" style={{ paddingLeft: "0px", paddingRight: "0px" }}>
                 <div className="d-flex justify-content-between align-items-center mb-4">
                   <h4 className="card-title mb-0">Búsqueda</h4>
                   <button type="button" className="close" aria-label="Close" onClick={() => setShowModalSearch(false)}>
@@ -36,7 +36,7 @@ const UserSearchModal = ({ setShowModalSearch }) => {
                   <button type="submit" className="btn btn-primary mr-2">
                     Aceptar
                   </button>
-                  <button className="btn btn-outline-secondary" onClick={() => setShowModalSearch(false)}>
+                  <button className="btn btn-secondary" onClick={() => setShowModalSearch(false)}>
                     Cancelar
                   </button>
                 </div>

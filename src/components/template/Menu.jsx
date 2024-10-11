@@ -1,13 +1,20 @@
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import MenuLink from "@components/template/MenuLink";
+import MenuTitle from "@components/template/MenuTitle";
+import MenuAction from "@components/template/MenuAction";
+import LogOut from "../autenticacion/LogOut";
 
 const Menu = () => {
+  const [showModalLogOut, setShowModalLogOut] = useState(false);
   const location = useLocation();
   const isPathActive = (keywords) => {
     return keywords.some((keyword) => location.pathname.includes(keyword)) ? "active" : "";
   };
 
-  console.log(location.pathname);
+  const onConfiguracionClick = () => {
+    console.log("Configuracion");
+  };
 
   return (
     <>
@@ -23,65 +30,29 @@ const Menu = () => {
             </Link>
           </li>
           <li className={`nav-item ${isPathActive(["/usuarios", "/usuarios/nuevo", "/permisos", "/backup"])}`}>
-            <a className="nav-link" data-toggle="collapse" href="#ui-autenticacion" aria-expanded="false" aria-controls="ui-autenticacion">
-              <span className="icon-bg">
-                <i className="mdi mdi-crosshairs-gps menu-icon"></i>
-              </span>
-              <span className="menu-title">Autenticación</span>
-              <i className="menu-arrow"></i>
-            </a>
-            <div className="collapse" id="ui-autenticacion">
-              <ul className="nav flex-column sub-menu">
-                <MenuLink text="Usuarios" path={["/usuarios", "/usuarios/nuevo"]} />
-                <MenuLink text="Permisos" path={["/permisos"]} />
-                <MenuLink text="Backup" path={["/backup"]} />
-              </ul>
-            </div>
+            <MenuTitle title="Autenticación" icon="mdi-crosshairs-gps" href="ui-autenticacion">
+              <MenuLink text="Usuarios" path={["/usuarios", "/usuarios/nuevo"]} />
+              <MenuLink text="Permisos" path={["/permisos"]} />
+              <MenuLink text="Backup" path={["/backup"]} />
+            </MenuTitle>
           </li>
           <li className={`nav-item ${isPathActive(["/configuracion", "/seguros"])}`}>
-            <a className="nav-link" data-toggle="collapse" href="#ui-registros" aria-expanded="false" aria-controls="ui-registros">
-              <span className="icon-bg">
-                <i className="mdi mdi-crosshairs-gps menu-icon"></i>
-              </span>
-              <span className="menu-title">Registros</span>
-              <i className="menu-arrow"></i>
-            </a>
-            <div className="collapse" id="ui-registros">
-              <ul className="nav flex-column sub-menu">
-                <MenuLink text="Configuración" path={["/configuracion"]} />
-                <MenuLink text="Seguros" path={["/seguros"]} />
-              </ul>
-            </div>
+            <MenuTitle title="Registros" icon="mdi-crosshairs-gps" href="ui-registros">
+              <MenuLink text="Configuración" path={["/configuracion"]} />
+              <MenuLink text="Seguros" path={["/seguros"]} />
+            </MenuTitle>
           </li>
           <li className={`nav-item ${isPathActive(["/pacientes", "/consultas"])}`}>
-            <a className="nav-link" data-toggle="collapse" href="#ui-consultas" aria-expanded="false" aria-controls="ui-consultas">
-              <span className="icon-bg">
-                <i className="mdi mdi-crosshairs-gps menu-icon"></i>
-              </span>
-              <span className="menu-title">Consultas</span>
-              <i className="menu-arrow"></i>
-            </a>
-            <div className="collapse" id="ui-consultas">
-              <ul className="nav flex-column sub-menu">
-                <MenuLink text="Pacientes" path={["/pacientes"]} />
-                <MenuLink text="Consultas/re-consultas" path={["/consultas"]} />
-                <MenuLink text="Agenda" path={["/agenda"]} />
-              </ul>
-            </div>
+            <MenuTitle title="Consultas" icon="mdi-crosshairs-gps" href="ui-consultas">
+              <MenuLink text="Pacientes" path={["/pacientes"]} />
+              <MenuLink text="Consultas/re-consultas" path={["/consultas"]} />
+              <MenuLink text="Agenda" path={["/agenda"]} />
+            </MenuTitle>
           </li>
           <li className={`nav-item ${isPathActive(["/reporte-consultas"])}`}>
-            <a className="nav-link" data-toggle="collapse" href="#ui-reportes" aria-expanded="false" aria-controls="ui-reportes">
-              <span className="icon-bg">
-                <i className="mdi mdi-crosshairs-gps menu-icon"></i>
-              </span>
-              <span className="menu-title">Reportes</span>
-              <i className="menu-arrow"></i>
-            </a>
-            <div className="collapse" id="ui-reportes">
-              <ul className="nav flex-column sub-menu">
-                <MenuLink text="Pacientes" path={["/reporte-consultas"]} />
-              </ul>
-            </div>
+            <MenuTitle title="Reportes" icon="mdi-crosshairs-gps" href="ui-reportes">
+              <MenuLink text="Pacientes" path={["/reporte-consultas"]} />
+            </MenuTitle>
           </li>
           <li className="nav-item documentation-link">
             <a className="nav-link" href="http://www.bootstrapdash.com/demo/connect-plus-free/jquery/documentation/documentation.html" target="_blank">
@@ -107,23 +78,12 @@ const Menu = () => {
               </div>
             </div>
           </li>
-          <li className="nav-item sidebar-user-actions">
-            <div className="sidebar-user-menu">
-              <a href="#" className="nav-link">
-                <i className="mdi mdi-settings menu-icon"></i>
-                <span className="menu-title">Configuración</span>
-              </a>
-            </div>
-          </li>
-          <li className="nav-item sidebar-user-actions">
-            <div className="sidebar-user-menu">
-              <a href="#" className="nav-link">
-                <i className="mdi mdi-logout menu-icon"></i> <span className="menu-title">Cerrar sesión</span>
-              </a>
-            </div>
-          </li>
+          <MenuAction icon="mdi-settings" title="Configuración" onClick={onConfiguracionClick} />
+          <MenuAction icon="mdi-logout" title="Cerrar sesión" onClick={() => setShowModalLogOut(true)} />
         </ul>
       </nav>
+
+      {showModalLogOut && <LogOut setShowModalLogOut={setShowModalLogOut} />}
     </>
   );
 };

@@ -2931,8 +2931,8 @@ pre code {
 .col-xl-auto {
   position: relative;
   width: 100%;
-  padding-right: 0px;
-  padding-left: 0px;
+  padding-right: 9px;
+  padding-left: 9px;
 }
 
 .col {
@@ -5206,7 +5206,7 @@ textarea.is-invalid.tt-hint {
 .btn {
   display: inline-block;
   font-weight: 400;
-  color: #a7afb7;
+  color: #2f3133;
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
@@ -14676,6 +14676,7 @@ code {
   line-height: 1;
   font-family: "nunito-regular", sans-serif;
   font-weight: 400;
+  /* color: #000000; */
 }
 .btn i {
   font-size: 18px;
@@ -17008,64 +17009,20 @@ dl li {
   border-radius: 100%;
 }
 
-.auth .auth-form-dark {
-  background: rgba(0, 0, 0, 0.6);
-  color: #ffffff;
-}
-.auth .auth-form-dark .form-control,
-.auth .auth-form-dark .select2-container--default .select2-selection--single,
-.select2-container--default .auth .auth-form-dark .select2-selection--single,
-.auth .auth-form-dark .select2-container--default .select2-selection--single .select2-search__field,
-.select2-container--default .select2-selection--single .auth .auth-form-dark .select2-search__field,
-.auth .auth-form-dark .typeahead,
-.auth .auth-form-dark .tt-query,
-.auth .auth-form-dark .tt-hint {
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-}
-.auth .auth-form-dark .form-control:-ms-input-placeholder,
-.auth .auth-form-dark .select2-container--default .select2-selection--single:-ms-input-placeholder,
-.select2-container--default .auth .auth-form-dark .select2-selection--single:-ms-input-placeholder,
-.auth .auth-form-dark .select2-container--default .select2-selection--single .select2-search__field:-ms-input-placeholder,
-.select2-container--default .select2-selection--single .auth .auth-form-dark .select2-search__field:-ms-input-placeholder,
-.auth .auth-form-dark .typeahead:-ms-input-placeholder,
-.auth .auth-form-dark .tt-query:-ms-input-placeholder,
-.auth .auth-form-dark .tt-hint:-ms-input-placeholder {
-  color: #ffffff;
-}
-.auth .auth-form-dark .form-control:-moz-placeholder,
-.auth .auth-form-dark .select2-container--default .select2-selection--single:-moz-placeholder,
-.select2-container--default .auth .auth-form-dark .select2-selection--single:-moz-placeholder,
-.auth .auth-form-dark .select2-container--default .select2-selection--single .select2-search__field:-moz-placeholder,
-.select2-container--default .select2-selection--single .auth .auth-form-dark .select2-search__field:-moz-placeholder,
-.auth .auth-form-dark .typeahead:-moz-placeholder,
-.auth .auth-form-dark .tt-query:-moz-placeholder,
-.auth .auth-form-dark .tt-hint:-moz-placeholder {
-  color: #ffffff;
-}
-.auth .auth-form-dark .form-control::-moz-placeholder,
-.auth .auth-form-dark .select2-container--default .select2-selection--single::-moz-placeholder,
-.select2-container--default .auth .auth-form-dark .select2-selection--single::-moz-placeholder,
-.auth .auth-form-dark .select2-container--default .select2-selection--single .select2-search__field::-moz-placeholder,
-.select2-container--default .select2-selection--single .auth .auth-form-dark .select2-search__field::-moz-placeholder,
-.auth .auth-form-dark .typeahead::-moz-placeholder,
-.auth .auth-form-dark .tt-query::-moz-placeholder,
-.auth .auth-form-dark .tt-hint::-moz-placeholder {
-  color: #ffffff;
-}
-.auth .auth-form-dark .form-control::-webkit-input-placeholder,
-.auth .auth-form-dark .select2-container--default .select2-selection--single::-webkit-input-placeholder,
-.select2-container--default .auth .auth-form-dark .select2-selection--single::-webkit-input-placeholder,
-.auth .auth-form-dark .select2-container--default .select2-selection--single .select2-search__field::-webkit-input-placeholder,
-.select2-container--default .select2-selection--single .auth .auth-form-dark .select2-search__field::-webkit-input-placeholder,
-.auth .auth-form-dark .typeahead::-webkit-input-placeholder,
-.auth .auth-form-dark .tt-query::-webkit-input-placeholder,
-.auth .auth-form-dark .tt-hint::-webkit-input-placeholder {
-  color: #ffffff;
-}
-
 .auth .auth-form-light {
   background: #ffffff;
+}
+@media (max-width: 400px) {
+  .auth-form-light {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media (min-width: 400px) {
+  .auth-form-light {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
 }
 .auth .auth-form-light select {
   color: #181824;
@@ -17086,7 +17043,7 @@ dl li {
 .auth .auth-form-light .input-group .typeahead:active,
 .auth .auth-form-light .input-group .tt-query:active,
 .auth .auth-form-light .input-group .tt-hint:active {
-  border-color: rgba(151, 151, 151, 0.3);
+  /* border-color: rgba(151, 151, 151, 0.3); */
 }
 
 .auth .auth-form-transparent {
@@ -17151,6 +17108,7 @@ dl li {
   font-size: 0.8125rem;
 }
 .auth form .form-group .form-control,
+.auth form .input-group .form-control,
 .auth form .form-group .select2-container--default .select2-selection--single,
 .select2-container--default .auth form .form-group .select2-selection--single,
 .auth form .form-group .select2-container--default .select2-selection--single .select2-search__field,
@@ -18924,4 +18882,18 @@ dl li {
   padding-left: 5px;
   padding-right: 5px;
   width: 10px;
+}
+
+.toast-message {
+  font-size: 14px;
+  padding: 20px;
+}
+
+.toast-message strong {
+  padding-bottom: 12px;
+  display: block;
+}
+
+.input-group-append div i {
+  font-size: 18px;
 }

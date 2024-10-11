@@ -1,8 +1,15 @@
+import { useEffect } from "react";
+import { DashboardConfig } from "@components/dashboard/DashboardConfig.jsx";
+
 const Dashboard = () => {
+  useEffect(() => {
+    DashboardConfig();
+  }, []); // Solo se ejecuta una vez al montar el componente
+
   return (
     <>
       <div className="page-header">
-        <h3 className="page-title">ESTADISTICAS 2024</h3>
+        <h3 className="page-title">Estadísticas 2024</h3>
       </div>
 
       <div className="row">
