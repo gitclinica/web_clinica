@@ -7,7 +7,7 @@ const Login = () => {
     <>
       <div className="col-lg-4 mx-auto">
         <div className="auth-form-light text-left py-5">
-          <LoginTitle title="Iniciar sesión para continua" />
+          <LoginTitle title="Iniciar sesión para continuar" />
           <LoginForm />
           <div className="text-center mt-3 font-weight-light">
             <Link to="/restablecer-password" className="text-primary">
