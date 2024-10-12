@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
 import Dashboard from "@components/dashboard/Dashboard";
@@ -11,6 +10,40 @@ import Menu from "@components/template/Menu";
 import User from "@components/autenticacion/User";
 import UserForm from "@components/autenticacion/UserForm";
 import ChangePassword from "@components/login/ChangePassword";
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/*" element={<MainLayout />} />
+      <Route
+        path="/login"
+        element={
+          <AuthLayout>
+            <Login />
+          </AuthLayout>
+        }
+      />
+      <Route
+        path="/restablecer-password"
+        element={
+          <AuthLayout>
+            <ResetPassword />
+          </AuthLayout>
+        }
+      />
+      <Route
+        path="/cambiar-password"
+        element={
+          <AuthLayout>
+            <ChangePassword />
+          </AuthLayout>
+        }
+      />
+    </Routes>
+  );
+}
+
+export default App;
 
 function MainLayout() {
   const navigate = useNavigate();
@@ -64,46 +97,9 @@ function AuthLayout({ children }) {
     <div className="container-scroller">
       <div className="container-fluid page-body-wrapper full-page-wrapper">
         <div className="content-wrapper d-flex align-items-center auth error-page">
-          <div className="row flex-grow">
-            {/* <div className="col-lg-4 mx-auto">{children}</div> */}
-            {children}
-          </div>
+          <div className="row flex-grow">{children}</div>
         </div>
       </div>
     </div>
   );
 }
-
-function App() {
-  return (
-    <Routes>
-      <Route path="/*" element={<MainLayout />} />
-      <Route
-        path="/login"
-        element={
-          <AuthLayout>
-            <Login />
-          </AuthLayout>
-        }
-      />
-      <Route
-        path="/restablecer-password"
-        element={
-          <AuthLayout>
-            <ResetPassword />
-          </AuthLayout>
-        }
-      />
-      <Route
-        path="/cambiar-password"
-        element={
-          <AuthLayout>
-            <ChangePassword />
-          </AuthLayout>
-        }
-      />
-    </Routes>
-  );
-}
-
-export default App;
